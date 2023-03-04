@@ -4,6 +4,7 @@ from functools import lru_cache
 class Settings(BaseSettings):
 
     user_service_url: str
+    book_service_url: str
 
     class Config:
         env_file = '.env'
