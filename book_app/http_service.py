@@ -33,7 +33,7 @@ class BookHttpService:
     #     request = requests.patch(f"{self.product_service_url}/{product_id}", json=product.dict())
     #     return request.json()
 
-    # async def delete_product(self, product_id: str):
-    #     request = requests.delete(f"{self.product_service_url}/{product_id}")
-    #     return request.json()
+    async def delete_book(self, book_id: str):
+        request = requests.delete(f"{self.book_service_url}/{book_id}")
+        return request.json()
 

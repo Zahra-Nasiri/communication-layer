@@ -37,6 +37,10 @@ class BookRouter:
     # async def partial_update_product(self, product_id: str, product: UpdateProduct):
     #     return await http_servie.partial_update_product(product_id, product)
 
-    # @router.delete("/{product_id}")
-    # async def delete_product(self, product_id: str):
-    #     return await http_servie.delete_product(product_id)
+    @router.delete("/{book_id}")
+    async def delete_book(self, book_id: str, token: str = Header()):
+        user_object = await user_http_service.get_user_by_token(token)
+        if user_object["is_admin"]:
+            return await http_servie.delete_book(book_id)
+        else:
+            return {"message": "Only admin user can delete books"}
