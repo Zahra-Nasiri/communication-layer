@@ -21,9 +21,9 @@ class BookHttpService:
         )
         return request.json()
 
-    # async def create_book(self, book: Book):
-    #     request = requests.post(f"{self.book_service_url}", json=book.dict())
-    #     return request.json()
+    async def create_book(self, book: Book):
+        request = requests.post(f"{self.book_service_url}", json=book.dict())
+        return request.json()
 
     # async def update_product(self, product_id: str, product: Product):
     #     request = requests.put(f"{self.product_service_url}/{product_id}", json=product.dict())
