@@ -44,3 +44,11 @@ class BookRouter:
             return await http_servie.delete_book(book_id)
         else:
             return {"message": "Only admin user can delete books"}
+
+    @router.get("/rent/{book_id}")
+    async def rent_book(self, book_id, token: str = Header()):
+        book = await http_servie.get_book(book_id)
+        if book["uid"]:
+            return {"message": "The book is rented by someone else"}
+        user = await user_http_service.get_user_by_token(token)
+        return await http_servie.partial_update_book(book_id, UpdateBook(uid= user["_id"]))
