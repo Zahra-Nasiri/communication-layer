@@ -15,15 +15,14 @@ class BookHttpService:
         request = requests.get(f"{self.book_service_url}/")
         return request.json()
 
-    # async def get_product(self, product_id: str):
-    #     # send request to product sevice
-    #     request = requests.get(
-    #         f"{self.product_service_url}/{product_id}/"
-    #     )
-    #     return request.json()
+    async def get_book(self, book_id: str):
+        request = requests.get(
+            f"{self.book_service_url}/{book_id}/"
+        )
+        return request.json()
 
-    # async def create_product(self, product: Product):
-    #     request = requests.post(f"{self.product_service_url}", json=product.dict())
+    # async def create_book(self, book: Book):
+    #     request = requests.post(f"{self.book_service_url}", json=book.dict())
     #     return request.json()
 
     # async def update_product(self, product_id: str, product: Product):

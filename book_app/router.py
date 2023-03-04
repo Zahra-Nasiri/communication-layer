@@ -1,7 +1,7 @@
 from fastapi_utils.cbv import cbv
 from fastapi_utils.inferring_router import InferringRouter
 from .http_service import BookHttpService
-from .models import Product, UpdateProduct
+from .models import Book, UpdateBook
 
 
 router = InferringRouter()
@@ -9,14 +9,14 @@ http_servie = BookHttpService()
 
 @cbv(router)
 class BookRouter:
-    pass
+
     @router.get("/")
     async def get_books(self):
         return await http_servie.get_books()
 
-    # @router.get("/{product_id}")
-    # async def get_product(self, product_id: str):
-    #     return await http_servie.get_product(product_id)
+    @router.get("/{book_id}")
+    async def get_book(self, book_id: str):
+        return await http_servie.get_book(book_id)
 
     # @router.post("/")
     # async def create_product(self, product: Product):
