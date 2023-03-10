@@ -114,7 +114,7 @@ Start the server
 #### Delete a book by admin
 
 ```http
-  DELETE /{bok_id}
+  DELETE /{book_id}
 ```
 
 
@@ -126,7 +126,7 @@ Start the server
 #### Update a book by admin
 
 ```http
-  PATCH /{bok_id}
+  PATCH /{book_id}
 ```
 
 
@@ -138,7 +138,7 @@ Start the server
 #### Rent a book by user
 
 ```http
-  POST /{bok_id}
+  POST /{book_id}
 ```
 
 
